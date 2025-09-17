@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build TR3 (MinGW)",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "chcp 65001>nul && if not exist build mkdir build && D:\\mingw64_win32\\bin\\g++.exe",
+        "-std=c++17",
+        "-Wall", "-Wextra",
+        "-g",
+        "-DUNICODE", "-D_UNICODE", "-DNOMINMAX",
+        "-I", "include",
+        "src/main.cpp",
+        "src/serial_port.cpp",
+        "src/tr3_protocol.cpp",
+        "-o", "build/tr3_usb.exe"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

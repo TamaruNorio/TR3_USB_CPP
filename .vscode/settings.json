@@ -1,0 +1,26 @@
+{
+    "cSpell.words": [
+        "CCPDB",
+        "CFLAGS",
+        "COMMTIMEOUTS",
+        "dsfid",
+        "DUNICODE",
+        "EEPROM",
+        "errorlevel",
+        "iobj",
+        "ipdb",
+        "LFLAGS",
+        "msvc",
+        "nologo",
+        "NOMINMAX",
+        "NOPARITY",
+        "OBJDIR",
+        "rxbuf",
+        "RXCLEAR",
+        "setlocal",
+        "spdb",
+        "TAKAYA",
+        "Wextra",
+        "Wpedantic"
+    ]
+}

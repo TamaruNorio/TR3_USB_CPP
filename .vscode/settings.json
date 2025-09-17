@@ -22,5 +22,7 @@
         "TAKAYA",
         "Wextra",
         "Wpedantic"
-    ]
+   ],
+
+  "cmake.debugConfig.externalConsole": true
 }

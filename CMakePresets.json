@@ -1,0 +1,73 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": "17",
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/build",
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build",
+        "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "${sourceDir}/build",
+        "CMAKE_COMPILE_PDB_OUTPUT_DIRECTORY": "${sourceDir}/build",
+        "CMAKE_PDB_OUTPUT_DIRECTORY": "${sourceDir}/build"
+      }
+    },
+
+    {
+      "name": "msvc-debug",
+      "displayName": "MSVC Debug",
+      "inherits": "base",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/msvc-debug",
+      "toolset": { "value": "host=x64" },
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDebugDLL"   ,
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "msvc-release",
+      "displayName": "MSVC Release",
+      "inherits": "base",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/msvc-release",
+      "toolset": { "value": "host=x64" },
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+
+    {
+      "name": "mingw-debug",
+      "displayName": "MinGW Debug",
+      "inherits": "base",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/mingw-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "mingw-release",
+      "displayName": "MinGW Release",
+      "inherits": "base",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/mingw-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "msvc-debug",    "configurePreset": "msvc-debug" },
+    { "name": "msvc-release",  "configurePreset": "msvc-release" },
+    { "name": "mingw-debug",   "configurePreset": "mingw-debug" },
+    { "name": "mingw-release", "configurePreset": "mingw-release" }
+  ],
+  "testPresets": []
+}

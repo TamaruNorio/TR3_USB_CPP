@@ -6,6 +6,18 @@ project(TR3_USB_CPP LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# すべての構成で build/ 直下に exe を出す
+set(_out "${CMAKE_SOURCE_DIR}/build")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${_out})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${_out})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${_out})
+foreach(cfg IN ITEMS Debug Release RelWithDebInfo MinSizeRel)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${cfg} ${_out})
+  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${cfg} ${_out})
+  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${cfg} ${_out})
+endforeach()
+
+
 # ---- 出力先をプロジェクト直下の build/ に集約 ----
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
@@ -63,3 +75,4 @@ endif()
 
 # メッセージ（ビルド後の実行方法）
 message(STATUS "Run: \"${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/tr3_usb\"  （起動後に COM / ボーレート / インベントリ試行回数を対話入力）")
+

@@ -6,6 +6,7 @@
         "dsfid",
         "DUNICODE",
         "EEPROM",
+        "endforeach",
         "errorlevel",
         "iobj",
         "ipdb",
@@ -22,7 +23,7 @@
         "TAKAYA",
         "Wextra",
         "Wpedantic"
-   ],
+    ],
 
   "cmake.debugConfig.externalConsole": true
 }
